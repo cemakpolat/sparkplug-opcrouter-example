@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  sparkplug-mqtt-consumer:
+    build: ./sb-consumer-app
+    container_name: sparkplug-mqtt-consumer
+    environment:
+      - BROKER_HOST=broker.emqx.io
+      - BROKER_PORT=1883
+#     depends_on:
+#       - opcrouter5
+
+#   opcrouter5:
+#     image: opcrouter/runtime:latest
+#     container_name: opcrouter5
+#     environment:
+#       - OR_I_ACCEPT_EULA=true
+#       - INITIAL_USERNAME=admin
+#       - INITIAL_PASSWORD=admin
+#       - TZ=Europe/Berlin
+#     ports:
+#       - "8080:8080"
+#       - "1234:80"
+#       - "49420:49420"
+#     volumes:
+#       - opc-router-5-db:/data/database
+#       - opc-router-5-userdata:/inray
+#       - opc-router5-logs:/var/log/opcrouter
+#     restart: always
+
+# volumes:
+#   opc-router-5-db:
+#   opc-router-5-userdata:
+#   opc-router5-logs:
+#   mongodb_data_container:
